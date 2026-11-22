@@ -1,0 +1,27 @@
+/* Filter.module.css */
+
+.filter {
+  max-width: 320px;
+  margin: 0 auto 24px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b4b5c;
+}
+
+.input {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #d4d4d8;
+  border-radius: 8px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}

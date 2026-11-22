@@ -1,16 +1,31 @@
-# React + Vite
+# Phonebook
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A phonebook app built with React class components. Contacts are saved in `localStorage`, so they stay in the browser after a page reload.
 
-Currently, two official plugins are available:
+This is a homework project for the GoIT React course (module 3): it extends the previous Phonebook task with persistent storage using lifecycle methods.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Live demo:** <link>
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Add a contact with a name and a phone number
+- Block duplicate names (case-insensitive) with an alert
+- Delete a contact
+- Filter contacts by name (case-insensitive)
+- Contacts are saved to `localStorage` when they are added or deleted
+- Contacts are loaded from `localStorage` when the app starts
 
-## Expanding the ESLint configuration
+## How `localStorage` works here
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Lifecycle method     | What it does                                                                                                               |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `componentDidMount`  | Reads the `contacts` key from `localStorage`, parses it, and puts the result into the state (only if something was saved). |
+| `componentDidUpdate` | Compares `prevState.contacts` with `this.state.contacts`. If they differ, saves the new array to `localStorage`.           |
+
+Saving only when `contacts` has changed (and not on every update, such as typing in the filter) avoids unnecessary writes.
+
+## Tech stack
+
+- React (class components, controlled form and filter)
+- nanoid for unique contact ids
+- CSS Module
