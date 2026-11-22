@@ -28,4 +28,4 @@ Saving only when `contacts` has changed (and not on every update, such as typing
 
 - React (class components, controlled form and filter)
 - nanoid for unique contact ids
-- CSS Module
+- CSS Modules
